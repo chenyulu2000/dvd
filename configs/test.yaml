@@ -1,0 +1,33 @@
+model:
+  encoder: debias
+  debias_img: True
+  debias_hist: True
+  decoder: disc
+
+  img_feature_size: 2048
+  word_embedding_size: 300
+  lstm_hidden_size: 512
+  lstm_num_layers: 1
+  dropout: 0.2
+
+  img_norm: 1
+  max_cap_sequence_length: 40
+  max_sequence_length: 20
+  vocab_min_count: 5
+
+solver:
+  test_batch_size: 64
+  val_set: visdial # visdial, vispro, or visdialconv
+  split: val
+
+checkpointing:
+  load_path: ''
+  phase: test
+
+reproducibility:
+  cpu_workers: 4
+  pin_memory: True
+  only_attention: False
+  devices:
+    - 2
+    - 3

@@ -1,0 +1,11 @@
+fusion:
+  fusion_layer: 2
+  fusion_multi_head: 4
+  fusion_hidden_size: 512
+  fusion_bbox_feature_size: 2048
+  fusion_ff_size: 2048
+  fusion_dropout: 0.1
+
+  fusion_flat_mlp_size: 512
+  fusion_flat_glimpses: 1
+  fusion_flat_out_size: 1024

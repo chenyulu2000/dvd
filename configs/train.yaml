@@ -1,0 +1,45 @@
+model:
+  encoder: debias
+  debias_img: True
+  debias_hist: True
+  decoder: disc
+
+  img_feature_size: 2048
+  word_embedding_size: 300
+  lstm_hidden_size: 512
+  lstm_num_layers: 1
+  dropout: 0.2
+
+  img_norm: 1
+  max_cap_sequence_length: 40
+  max_sequence_length: 20
+  vocab_min_count: 5
+
+  debias_weight: 1.00
+  gce_q: 0.30
+
+solver:
+  batch_size: 16
+  val_batch_size: 32
+  num_epochs: 15
+  initial_lr: 0.0005
+  num_epochs_finetune: 10
+  initial_lr_finetune: 0.0001
+  training_splits: train # train or trainval
+  lr_gamma: 0.2
+  lr_milestones:
+    - 7
+    - 10
+  warmup_factor: 0.2
+  warmup_epochs: 1
+
+checkpointing:
+  load_path: ''
+  load_finetune_path: ''
+  phase: train
+
+reproducibility:
+  cpu_workers: 4
+  validate_epoch: 7
+  save_interval: -1
+  pin_memory: True
